@@ -17,11 +17,12 @@ var dev_dir = {
 	js: 'src/js/' + APP
 };
 
+var local_build_dir_dest = '/Users/prashanth.a/me/php-apps/drisle-static/';
 var build_dir = {
 	//css: 'build/css/' + APP,
 	//js: 'build/js/' + APP
-    css: '/Users/prashanth.a/me/php-apps/drisle-static/css/' + APP,
-    js: '/Users/prashanth.a/me/php-apps/drisle-static/js/' + APP
+    css: local_build_dir_dest + 'css/' + APP,
+    js: local_build_dir_dest + 'js/' + APP
 };
 
 var options = {};
@@ -56,5 +57,14 @@ gulp.task('default', function() {
 });
 
 
+gulp.task('cloud-deploy', function(){
 
+    var bitballoon = require("bitballoon");
+    //console.log(process.env.ACCESSKEY, process.env.SITEID);return;
+    console.log("Starting deployment to cloud..");
+    bitballoon.deploy({access_token: process.env.ACCESSKEY, site_id: process.env.SITEID, dir: local_build_dir_dest}, function(err, deploy) {
+        if (err) { return console.log(err); }
+        console.log("New deploy is live");
+    });
 
+});

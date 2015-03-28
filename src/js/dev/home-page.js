@@ -6,7 +6,7 @@ var DRE = DRE || {};
 DRE["homepage"] = {
 
     init: function(){
-        console.log("Ready.");
+        console.log("App Ready.");
     }
 
 };
