@@ -1,0 +1,89 @@
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+  background-clip: padding-box;  /* stops bg color from leaking outside the border: */
+}
+
+// Single side border-radius
+
+@mixin border-top-radius($radius) {
+  -webkit-border-top-right-radius: $radius;
+  border-top-right-radius: $radius;
+  -webkit-border-top-left-radius: $radius;
+  border-top-left-radius: $radius;
+  background-clip: padding-box;
+}
+@mixin border-right-radius($radius) {
+  -webkit-border-bottom-right-radius: $radius;
+  border-bottom-right-radius: $radius;
+  -webkit-border-top-right-radius: $radius;
+  border-top-right-radius: $radius;
+  background-clip: padding-box;
+}
+@mixin border-bottom-radius($radius) {
+  -webkit-border-bottom-right-radius: $radius;
+  border-bottom-right-radius: $radius;
+  -webkit-border-bottom-left-radius: $radius;
+  border-bottom-left-radius: $radius;
+  background-clip: padding-box;
+}
+@mixin border-left-radius($radius) {
+  -webkit-border-bottom-left-radius: $radius;
+  border-bottom-left-radius: $radius;
+  -webkit-border-top-left-radius: $radius;
+  border-top-left-radius: $radius;
+  background-clip: padding-box;
+}
+
+@mixin font($font, $style: normal, $weight: normal) {
+  font-family: $font, Helvetica, Arial;
+  font-style:  $style;
+  font-weight: $weight;
+}
+
+//
+// mixin for bullet proof font declaration syntax
+//
+@mixin declare-font-face($font-family, $font-filename, $font-weight : normal, $font-style :normal, $font-stretch : normal) {
+  @font-face {
+    font-family: '#{$font-family}';
+    src: url('#{$font-filename}.ttf') format('truetype'),
+    url('#{$font-filename}.eot?#iefix') format('embedded-opentype'),
+    url('#{$font-filename}.woff') format('woff'),
+    url('#{$font-filename}.svg##{$font-family}') format('svg');
+    src: url('#{$font-filename}.eot');
+    font-weight: $font-weight;
+    font-style: $font-style;
+    font-stretch: $font-stretch;
+  }
+}
+
+
+@mixin bpm($x, $y, $z){
+
+  $dim: "";
+
+  @if $y == t{
+    $dim : "-top";
+  }
+  @else if $y == r{
+    $dim : "-right";
+  }
+  @else if $y == b{
+    $dim : "-bottom";
+  }
+  @else if $y == l{
+    $dim : "-left";
+  }
+
+  @if $x == b{
+    border#{$dim}: #{$z};
+  }
+  @else if $x == m{
+    margin#{$dim}: #{$z}px;
+  }
+  @else if $x == p{
+    padding#{$dim}: #{$z}px;
+  }
+
+}

@@ -1,0 +1,35 @@
+@import "compass/css3/font-face";
+@import "mixins";
+
+@include declare-font-face("Roboto-medium","fonts/Roboto-Medium");
+@include declare-font-face("Roboto-light", "fonts/Roboto-Light");
+@include declare-font-face("Roboto-thin", "fonts/Roboto-Thin");
+
+
+.font-normal{
+  font-size: $unit-size + px;
+}
+
+.font-big{
+  font-size: $unit-size*1.5 + px;
+}
+
+.font-v-big{
+  font-size: $unit-size*3 + px;
+}
+
+.font-vv-big{
+  font-size: $unit-size*6 + px;
+}
+
+.font-small {
+  font-size: $unit-size*0.9 + px;
+}
+
+.font-v-small{
+  font-size: $unit-size*0.6 + px;
+}
+
+.text-center{
+  text-align: center;
+}

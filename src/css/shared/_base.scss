@@ -1,0 +1,88 @@
+@import "compass/css3/border-radius";
+@import "compass/css3/box-shadow";
+
+@import "buttons";
+@import "colors";
+@import "dimensions";
+@import "layouts";
+@import "fonts";
+
+.drisle{
+
+  @include font("Lato");
+  overflow: hidden;
+
+  a{
+    text-decoration: none;
+  }
+
+  a:hover{
+    text-decoration: underline;
+  }
+
+  .drisle-header{
+    @extend .bg-black;
+    @include box-shadow($black 1px 1px 1px);
+    @include bpm(p, x, 10);
+    overflow: auto;
+
+    .logo{
+      @extend .de-lfloat;
+      @extend .bg-red;
+      @extend .de-hidden;
+      @include border-radius(10px);
+      @include bpm(p, x, 5);
+      small{
+        @extend .font-big;
+      }
+    }
+
+    .actions{
+      @extend .de-rfloat;
+      /*@include bpm(m, t, 5);*/
+      a{
+        @include bpm(m, r, 10);
+      }
+
+    }
+
+  }
+
+
+  .drisle-footer{
+    @include bpm(p, x, 20);
+    background-size: 5px 5px;
+    background-color: $black;
+    background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
+            transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
+            transparent 75%, transparent);
+    background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
+            transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
+            transparent 75%, transparent);
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
+            transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
+            transparent 75%, transparent);
+    height: 300px;
+
+    li{
+        @include bpm(m, t, 10);
+        a{
+          @extend .color-white;
+        }
+    }
+  }
+
+
+  /* --todo: move this to _icons */
+  .de-icon{
+    @include bpm(p, l, 16);
+  }
+
+  .icon-fb{ background-image: url("../../images/fb-icon.png"); background-repeat: no-repeat;}
+  .icon-tw{ background-image: url("../../images/tw-icon.png"); background-repeat: no-repeat;}
+  .icon-team{ background-image: url("../../images/feature1.png"); background-repeat: no-repeat;}
+  .icon-money-time{ background-image: url("../../images/feature2.png"); background-repeat: no-repeat;}
+  .icon-process{ background-image: url("../../images/feature3.png"); background-repeat: no-repeat;}
+
+  .p{@include bpm(p,x,10);}
+}

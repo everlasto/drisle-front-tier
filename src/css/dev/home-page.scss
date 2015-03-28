@@ -1,0 +1,61 @@
+@import "../shared/base";
+@import "compass/reset";
+
+.drisle-home{
+
+  .de-hero{
+    background-image: url("../../images/team-working.jpg");
+    background-repeat: no-repeat;
+    display: table;
+    height: 650px;
+    width: 100%;
+    .de-hero-content{
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+      h2{
+        @extend .color-white;
+        @extend .font-v-big;
+      }
+      .de-input-button{
+        @include bpm(m, x, 20);
+      }
+    }
+  }
+
+  .features{
+    .feature{
+      @include bpm(p, x, 20);
+      @extend .text-center;
+      @include bpm(m, b, 20);
+      @extend .de-center;
+      width: 80%;
+
+      h2 {
+        @extend .font-v-big;
+        @include bpm(p, b, 30);
+        @include bpm(b, b, 1px dotted $lite-black);
+      }
+
+      .feature-desc {
+        @extend .de-center;
+        @include bpm(m, t, 50);
+
+        .text {
+          @extend .font-big;
+          @include bpm(m, t, 50);
+          line-height: 1.5;
+        }
+        .placeholder-image {
+          @extend .de-center;
+          width: 64px;
+          height: 64px;
+        }
+      }
+    }
+
+
+  }
+
+
+}
